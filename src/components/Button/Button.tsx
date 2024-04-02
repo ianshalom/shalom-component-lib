@@ -52,6 +52,7 @@ export const Button = ({
   backgroundColor,
   onClick,
 }: ButtonProps) => {
+  // ADD COMMENT
   return (
     <StyledButton
       backgroundColor={backgroundColor}
