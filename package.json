@@ -1,6 +1,6 @@
 {
   "name": "@ianshalom/shalom-component-lib",
-  "version": "0.0.0",
+  "version": "1.0.1",
   "type": "module",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@ianshalom"
