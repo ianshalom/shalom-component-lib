@@ -1,6 +1,6 @@
 {
   "name": "@ianshalom/shalom-component-lib",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "type": "module",
   "private": false,
   "publishConfig": {
