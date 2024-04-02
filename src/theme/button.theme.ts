@@ -38,9 +38,8 @@ export const buttonTheme = {
         color: primaryColor,
       },
       "&:active": {
-        backgroundColor: primaryColor,
+        backgroundColor: "transparent",
         borderColor: primaryColor,
-        color: "#fff",
       },
     },
   },
