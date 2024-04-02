@@ -14,7 +14,8 @@
     "build-storybook": "storybook build",
     "test": "vitest run",
     "test-watch": "vitest",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "react": "^18.2.0",
