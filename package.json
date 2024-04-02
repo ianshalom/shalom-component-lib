@@ -1,8 +1,11 @@
 {
-  "name": "shalom-component-lib",
+  "name": "@ianshalom/shalom-component-lib",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@ianshalom"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
