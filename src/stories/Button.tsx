@@ -1,48 +1,64 @@
-import React from 'react';
-import './button.css';
+import styled from "styled-components";
 
 interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary?: boolean;
-  /**
-   * What background color to use
-   */
+  variant: "primary" | "secondary";
   backgroundColor?: string;
-  /**
-   * How large should the button be?
-   */
-  size?: 'small' | 'medium' | 'large';
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
+  // size?: "small" | "medium" | "large";
+  label?: string;
   onClick?: () => void;
 }
 
-/**
- * Primary UI component for user interaction
- */
+const StyledButton = styled.button<ButtonProps>`
+  padding: 12px 50px;
+  border-radius: 3px;
+  font-size: 1em;
+  cursor: pointer;
+  outline: none;
+  text-transform: none;
+  transition: 0.4s;
+
+  ${({ theme, backgroundColor, variant }) => `
+    background-color: ${backgroundColor ? backgroundColor : theme.button.color[variant].backgroundColor};
+    color: ${theme.button.color[variant].color};
+    
+    &:disabled {
+      cursor: not-allowed;
+      background-color: ${theme.button.color[variant]["&:disabled"].backgroundColor};
+      border-color: ${theme.button.color[variant]["&:disabled"].borderColor};
+    }
+
+    &:hover {
+        background-color: ${theme.button.color[variant]["&:hover"].backgroundColor};
+        border-color: ${theme.button.color[variant]["&:hover"].borderColor};
+        color: ${theme.button.color[variant]["&:hover"].color};
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      &:active {
+        background-color: ${theme.button.color[variant]["&:active"].backgroundColor};
+        border-color: ${theme.button.color[variant]["&:active"].borderColor};
+        color: ${theme.button.color[variant]["&:active"].color};
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+`};
+`;
+
 export const Button = ({
-  primary = false,
-  size = 'medium',
-  backgroundColor,
   label,
-  ...props
+  variant,
+  backgroundColor,
+  onClick,
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
   return (
-    <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={{ backgroundColor }}
-      {...props}
+    <StyledButton
+      backgroundColor={backgroundColor}
+      variant={variant}
+      onClick={onClick}
     >
       {label}
-    </button>
+    </StyledButton>
   );
 };
